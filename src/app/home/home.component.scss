@@ -1,0 +1,33 @@
+#home {
+  display: flex;
+  margin: 2rem;
+  justify-content: space-evenly;
+}
+
+.form-items {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 1rem;
+}
+
+.form-items input,
+textarea {
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.form-items button {
+  margin-left: 40%;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background: #333;
+  color: #f4f4f4;
+}
+
+#managequeue,
+#checkstatus {
+  margin-top: 7rem;
+}

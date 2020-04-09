@@ -1,0 +1,44 @@
+<div id="home">
+  <div id="managequeue">
+    <h4>Specify Message and Correlation Id to be sent to the Queue</h4>
+    <form>
+      <div class="form-items">
+        <label for="queuename">Queue Name</label>
+        <input type="text" name="queuename" id="queuename" />
+      </div>
+      <div class="form-items">
+        <label for="classname">Class Name</label>
+        <input type="text" name="classname" id="classname" />
+      </div>
+      <div class="form-items">
+        <label for="correlationid">Correlation Id</label>
+        <input type="text" name="correlationid" id="correlationid" />
+      </div>
+      <div class="form-items">
+        <label for="text">Text</label>
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+      </div>
+      <div class="form-items">
+        <button>Send To Queue</button>
+      </div>
+    </form>
+  </div>
+  <div id="checkstatus">
+    <h4>
+      Specify Either the Workflow Transaction Id or Business Key Id to search
+    </h4>
+    <form>
+      <div class="form-items">
+        <label for="txnid">WorkflowTransaction Id</label>
+        <input type="text" name="txnid" id="txnid" />
+      </div>
+      <div class="form-items">
+        <label for="bkkey">Business Key</label>
+        <input type="text" name="bkkey" id="bkkey" />
+      </div>
+      <div class="form-items">
+        <button>Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
