@@ -1,0 +1,22 @@
+@import "./../../assets/utility";
+// @import "../../../node_modules/@swimlane/ngx-datatable/index.scss";
+// @import "../../../node_modules/@swimlane/ngx-datatable/themes/material.scss";
+// @import "../../../node_modules/@swimlane/ngx-datatable/assets/icons.css";
+// @import "@swimlane/ngx-datatable/index.css";
+// @import "@swimlane/ngx-datatable/themes/material.scss";
+// @import "@swimlane/ngx-datatable/assets/icons.css";
+.card {
+  margin: 0.5rem;
+  padding: 1rem;
+  background: #d0def0;
+  border-radius: 20px;
+}
+
+.form-group input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+
+
+

@@ -3,8 +3,7 @@
     <div class="img"></div>
   </div>
   <div class="content">
-    <span id="tcs-color">TCS</span><span id="master-color">Master</span
-    ><span id="craft-color">Craft</span>
+    <span id="tcs-color">TCS</span><span id="master-color">Master</span><span id="craft-color">Craft</span>
   </div>
   <div class="content1">
     WorkflowManager
@@ -17,59 +16,50 @@
 <div id="main-nav-2">
   <ul id="list-items">
     <li>
-      <a href="#"><i class="fas fa-home icon"></i> Home </a>
+      <a [routerLink]="'/'"><i class="fas fa-home icon"></i> Home </a>
     </li>
     <li>
-      <a href="#"> <i class="fas fa-inbox icon"></i>Inbox </a>
+      <a> <i class="fas fa-inbox icon"></i>Inbox </a>
     </li>
     <li>
-      <a href="#"
-        ><i class="fas fa-inbox icon"></i> Proxy<i
-          class="fas fa-angle-down"
-        ></i>
+      <a><i class="fas fa-inbox icon"></i> Proxy<i class="fas fa-angle-down"></i>
         <ul>
           <li><a href="#">Proxy Inbox</a></li>
           <li><a href="#">Setting</a></li>
-        </ul></a
-      >
+        </ul>
+      </a>
     </li>
 
     <li>
-      <a href="#"
-        ><i class="fas fa-user-shield icon"></i> Admin<i
-          class="fas fa-angle-down"
-        ></i>
+      <a><i class="fas fa-user-shield icon"></i> Admin<i class="fas fa-angle-down"></i>
         <ul>
           <li><a href="#">Create Process</a></li>
           <li><a href="#">Edit Process</a></li>
           <li><a href="#">Process Version</a></li>
-          <li><a href="#">Manage Roles</a></li>
+          <li><a [routerLink]="'/role'">Manage Roles</a></li>
+          <li><a [routerLink]="'/group'">Manage Groups</a></li>
           <li><a href="#">Manage Users</a></li>
           <li><a href="#">Archive Items</a></li>
         </ul>
       </a>
     </li>
     <li>
-      <a href="#"
-        ><i class="fas fa-search icon"></i> Search<i
-          class="fas fa-angle-down"
-        ></i>
+      <a><i class="fas fa-search icon"></i> Search<i class="fas fa-angle-down"></i>
         <ul>
           <li><a href="#">Failed Events</a></li>
           <li><a href="#">Failed Items</a></li>
-        </ul></a
-      >
+        </ul>
+      </a>
     </li>
     <li>
-      <a href="#"
-        ><i class="fas fa-tv icon"></i> Monitor
+      <a><i class="fas fa-tv icon"></i> Monitor
         <i class="fas fa-angle-down"></i>
         <ul>
           <li><a href="#">Initiated Items</a></li>
           <li><a href="#">Monitor Items</a></li>
           <li><a href="#">Terminated Items</a></li>
-        </ul></a
-      >
+        </ul>
+      </a>
     </li>
     <li>
       <a href="#"><i class="fas fa-cogs icon"></i> Reports </a>
