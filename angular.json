@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "WorkflowFrontend"
+  "defaultProject": "WorkflowFrontend",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
