@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { EntityDataModule } from '@ngrx/data';
+import { UsersModule } from './users/users.module';
 
 
 
@@ -38,6 +39,7 @@ import { EntityDataModule } from '@ngrx/data';
     NgxDatatableModule,
     ReactiveFormsModule,
     GroupsModule,
+    UsersModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
