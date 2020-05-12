@@ -23,6 +23,20 @@ export class GroupsEffects {
     ), { dispatch: false }
   )
 
+  deleteGroup$ = createEffect(
+    () => this.action$.pipe(
+      ofType(GroupsActions.GroupDeleted),
+      concatMap(action => this.groupService.delete("http://192.168.0.3:8011/userandrole-ws/groups/" + action.id))
+    ), { dispatch: false }
+  )
+
+  createGroup$ = createEffect(
+    () => this.action$.pipe(
+      ofType(GroupsActions.GroupCreated),
+      // concatMap(action => this.groupService.create("http://192.168.0.3:8011/userandrole-ws/groups/", action.create))
+    ), { dispatch: false }
+  )
+
 
 
   constructor(private action$: Actions, private groupService: GroupService) {

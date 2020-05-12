@@ -28,10 +28,11 @@ export const initialGroupState = adapter.getInitialState({
 export const GroupsReducer = createReducer(
   initialGroupState,
   on(GroupsActions.allGroupLoaded, (state, action) => adapter.addAll(action.groups, { ...state, allGroupsLoaded: true })),
-  on(GroupsActions.GroupUpdated, (state, action) => adapter.updateOne(action.update, state))
+  on(GroupsActions.GroupUpdated, (state, action) => adapter.updateOne(action.update, state)),
+  on(GroupsActions.GroupDeleted, (state, action) => adapter.removeOne(action.id, { ...state })),
+  on(GroupsActions.GroupCreated, (state, action) => adapter.addOne(action.create, state))
+
 )
-
-
 export const metaReducers: MetaReducer<GroupState>[] = !environment.production ? [] : [];
 
 

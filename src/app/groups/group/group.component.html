@@ -40,12 +40,12 @@
     </div>
     <div class="button-group">
       <!-- <button [disabled]="!roleForm.valid" type="submit" class="btn">Search</button> -->
-      <button [disabled]="!groupForm.valid" type="submit" class="btn">Create</button>
-      <button [disabled]="!groupForm.valid" type="button" (click)="deletegroupForm(groupForm)"
-        class="btn">Delete</button>
-      <button [disabled]="!groupForm.valid" type="button" (click)="updategroupForm(groupForm)"
-        class="btn">Update</button>
-      <button type="reset" class="btn">Clear</button>
+      <button [disabled]="!groupForm.valid || !delAndUpdateButtonStatus " type="submit" class="btn">Create</button>
+      <button [disabled]="!groupForm.valid || delAndUpdateButtonStatus" type="button"
+        (click)="deletegroupForm(groupForm)" class="btn">Delete</button>
+      <button [disabled]="!groupForm.valid || delAndUpdateButtonStatus" type="button"
+        (click)="updategroupForm(groupForm)" class="btn">Update</button>
+      <button type="reset" (click)="onclear()" class="btn">Clear</button>
     </div>
   </form>
 </div>
@@ -66,7 +66,7 @@
           style="color: black;  background: white; padding-bottom: 3px;"></i>
       </button><span><a (click)="getPageData()"
           style="cursor: pointer; text-decoration: none; border: 1px solid black; background-color: rgb(71, 120, 139);border-radius: 5px;padding: 3px;">All
-          Roles</a></span>
+          Group</a></span>
     </form>
   </div>
   <div class="table-content">
@@ -88,10 +88,10 @@
 
 <ng-template #optionTpl let-row="row" let-value="value" let-i="index">
   <a>
-    <i class="fas fa-edit" style="color: black;cursor: pointer;" (click)="updateRole(row,index)"></i>
+    <i class="fas fa-edit" style="color: black;cursor: pointer;" (click)="updateGroup(row,index)"></i>
   </a> |
   <a>
-    <i class="fas fa-trash-alt" style="color: red;cursor: pointer;" (click)="deleteRole(row,index)"> </i>
+    <i class="fas fa-trash-alt" style="color: red;cursor: pointer;" (click)="deleteGroup(row,index)"> </i>
   </a>
 
 </ng-template>

@@ -11,7 +11,16 @@ import { GroupsResolver } from './groups.resolver';
 import { EffectsModule } from '@ngrx/effects';
 import { GroupsEffects } from './groups.effects';
 import { GroupService } from './groups.service';
+import { EntityMetadataMap, EntityDefinitionService, EntityDataService } from '@ngrx/data';
+import { GroupEntityService } from './groups-entity.service';
+import { GroupDataService } from './groups-data.service';
 
+
+const entityData: EntityMetadataMap = {
+  groups: {
+
+  }
+};
 
 
 @NgModule({
@@ -30,8 +39,16 @@ import { GroupService } from './groups.service';
   providers: [
     GroupsResolver,
     GroupsEffects,
-    GroupService
+    GroupService,
+    GroupEntityService,
+    GroupDataService
 
   ]
 })
-export class GroupsModule { }
+export class GroupsModule {
+
+  constructor(private eds: EntityDefinitionService, private entityDataService: EntityDataService, private groupsDataService: GroupDataService) {
+    eds.registerMetadataMap(entityData);
+    entityDataService.registerService('groups', groupsDataService);
+  }
+}

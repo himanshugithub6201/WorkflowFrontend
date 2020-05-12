@@ -24,3 +24,15 @@ export const GroupUpdated = createAction(
   "[Edit Group] Group Updated",
   props<{ update: Update<Group> }>()
 )
+
+
+export const GroupDeleted = createAction(
+  "[Delete Group] Group Deleted",
+  props<{ id: string }>()
+)
+
+
+export const GroupCreated = createAction(
+  "[Create Group] Group Created",
+  props<{ create: Group }>()
+)

@@ -26,4 +26,16 @@ export class GroupService {
       headers: this.getHeaders()
     });
   }
+
+  delete(url: string): Observable<any> {
+    let me = this;
+    return this.http.delete(url);
+  }
+
+  create(url: string, body: Object): Observable<any> {
+    let me = this;
+    return this.http.post(url, JSON.stringify(body), {
+      headers: this.getHeaders()
+    });
+  }
 }
