@@ -1,1 +1,97 @@
-<p>group works!</p>
+<div class="card">
+  <form id="form" [formGroup]="groupForm" (ngSubmit)="onSubmit($event)">
+    <div class="input">
+      <!-- <p *ngIf="!userId.valid && userId.touched" class="alert*">*</p> -->
+      <div class="form-group">
+        <input type="hidden" name="id" id="id" formControlName="id" />
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" formControlName="name" placeholder="John" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" formControlName="description"
+          placeholder="Description" />
+      </div>
+      <div class="form-group">
+        <label for="isAdmin">Is Admin:</label>
+        <select name="isAdmin" id="isAdmin" formControlName="isAdmin">
+          <option value="NO">NO</option>
+          <option value="YES">YES</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="canViewReports">Can View Reports</label>
+        <select name="canViewReports" id="canViewReports" formControlName="canViewReports">
+          <option value="NO">NO</option>
+          <option value="YES">YES</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="deleteFlag">Delete Flag:</label>
+        <select name="deleteFlag" id="deleteFlag" formControlName="deleteFlag">
+          <option value="NO">NO</option>
+          <option value="YES">YES</option>
+        </select>
+      </div>
+    </div>
+    <div class="button-group">
+      <!-- <button [disabled]="!roleForm.valid" type="submit" class="btn">Search</button> -->
+      <button [disabled]="!groupForm.valid || !delAndUpdateButtonStatus " type="submit" class="btn">Create</button>
+      <button [disabled]="!groupForm.valid || delAndUpdateButtonStatus" type="button"
+        (click)="deletegroupForm(groupForm)" class="btn">Delete</button>
+      <button [disabled]="!groupForm.valid || delAndUpdateButtonStatus" type="button"
+        (click)="updategroupForm(groupForm)" class="btn">Update</button>
+      <button type="reset" (click)="onclear()" class="btn">Clear</button>
+    </div>
+  </form>
+</div>
+
+
+
+<div class="card" style="height: 30rem;">
+  <div id="searchtab">
+    <!-- <input type="text" name="name" id="name" placeholder="Search By Name"
+      style="border: none; border-bottom: 1px solid black; height: 20px;background: white;padding-top: 6px;padding-bottom: 6px;"><a
+      (Click)="searchByName()"><i class="fas fa-search"
+        style="color: black; border-bottom: 1px solid black; background: white; padding-bottom: 3px;"></i></a> -->
+    <form style="margin-bottom: 5px;" (ngSubmit)="onSearchByName(f)" #f="ngForm">
+      <input type="text" name="name" ngModel id="name" placeholder="Search By Name" required
+        style="border: none; border-bottom: 1px solid black; height: 20px;background: white;padding-top: 6px;padding-bottom: 6px;">
+      <button [disabled]="!f.valid" type="submit"
+        style="border: none; padding: 2px;cursor: pointer;margin-right: 2rem;"><i class="fas fa-search"
+          style="color: black;  background: white; padding-bottom: 3px;"></i>
+      </button><span><a (click)="getPageData()"
+          style="cursor: pointer; text-decoration: none; border: 1px solid black; background-color: rgb(71, 120, 139);border-radius: 5px;padding: 3px;">All
+          Group</a></span>
+    </form>
+  </div>
+  <div class="table-content">
+    <div class="s-info-bar">
+      <div style="flex:1"></div>
+      <div *ngIf="isLoading" class="spinner spinner-md" style="margin:0 10px;">
+        Loading...
+      </div>
+    </div>
+    <ngx-datatable class="material" style="height:420px; width:100%;" [rows]="rows" [columns]="columns"
+      [columnMode]="'standard'" [headerHeight]="45" [footerHeight]="45" [rowHeight]="36" [scrollbarV]="true">
+    </ngx-datatable>
+  </div>
+</div>
+
+<ng-template #IdTpl let-row="row" let-value="value" let-i="index">
+  <a style="text-decoration: None;" routerLink="/group/{{ value }}" attr.data-itemid="{{ value }}">{{ value }}</a>
+</ng-template>
+
+<ng-template #optionTpl let-row="row" let-value="value" let-i="index">
+  <a>
+    <i class="fas fa-edit" style="color: black;cursor: pointer;" (click)="updateGroup(row,index)"></i>
+  </a> |
+  <a>
+    <i class="fas fa-trash-alt" style="color: red;cursor: pointer;" (click)="deleteGroup(row,index)"> </i>
+  </a>
+
+</ng-template>
