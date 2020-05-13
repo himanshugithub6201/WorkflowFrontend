@@ -60,7 +60,7 @@ export class GroupComponent implements OnInit {
     })
   }
 
-  updateGroup(row, index) {
+  updateGroup(row) {
     var me = this;
     this.delAndUpdateButtonStatus = false;
     this.groupForm.setValue({
@@ -92,7 +92,7 @@ export class GroupComponent implements OnInit {
   }
 
 
-  deleteGroup(row, index) {
+  deleteGroup(row) {
     var id: string = row.id;
     this.store.dispatch(GroupDeleted({ id }));
     swal.fire("Group Deleted");
@@ -116,11 +116,8 @@ export class GroupComponent implements OnInit {
   onclear() {
     this.delAndUpdateButtonStatus = true;
   }
-  // onSearchByName(form: NgForm) {
-  //   this.store.subscribe((groups) => {
-  //     console.log(groups["groups"]["entities"]);
-  //     this.rows = groups["groups"]["entities"].id
-  //   })
-  // }
+  onSearchByName(form: NgForm) {
+
+  }
 
 }

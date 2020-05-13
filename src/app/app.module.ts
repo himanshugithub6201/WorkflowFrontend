@@ -23,7 +23,6 @@ import { UsersModule } from './users/users.module';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +49,9 @@ import { UsersModule } from './users/users.module';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([AppEffects]),
     EntityDataModule.forRoot({}),
+
+
+
   ],
   providers: [RoleService],
   bootstrap: [AppComponent]

@@ -5,21 +5,21 @@ import {
   RouterStateSnapshot,
 } from "@angular/router";
 import { Observable } from "rxjs";
-import { UserEntityService } from "./user-entity.service";
 import { map, tap, filter, first } from "rxjs/operators";
+import { RoleEntityService } from "./role-entity.service";
 
 @Injectable()
-export class UserResolver implements Resolve<boolean> {
-  constructor(private userService: UserEntityService) {}
+export class RoleResolver implements Resolve<boolean> {
+  constructor(private roleService: RoleEntityService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> {
-    return this.userService.loaded$.pipe(
+    return this.roleService.loaded$.pipe(
       tap((loaded) => {
         if (!loaded) {
-          this.userService.getAll();
+          this.roleService.getAll();
         }
       }),
       filter((loaded) => !!loaded),

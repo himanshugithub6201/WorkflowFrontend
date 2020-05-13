@@ -79,7 +79,7 @@ export class RoleComponent implements OnInit {
     });
   }
 
-  deleteRole(row, index) {
+  deleteRole(row) {
     var me = this;
     var url1: string = "http://192.168.0.3:8011/userandrole-ws/roles/";
     var url2: string = row.id;
@@ -93,7 +93,7 @@ export class RoleComponent implements OnInit {
     })
   }
 
-  updateRole(row, index) {
+  updateRole(row) {
     var me = this;
     this.roleForm.setValue({
       'id': row.id,

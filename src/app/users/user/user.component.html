@@ -1,1 +1,176 @@
-<p>user works!</p>
+<div id="place">
+  <div
+    style="display: flex; align-content: space-around;"
+    id="crearwUserButton"
+  >
+    <a class="btn-create">Create User</a>
+    <input type="text" />
+    <a class="btn-create">Search User</a>
+  </div>
+  <ngx-datatable
+    #table
+    class="main-area"
+    [headerHeight]="50"
+    [footerHeight]="40"
+    [limit]="5"
+    [rows]="rows"
+    [rowHeight]="'auto'"
+  >
+    <ngx-datatable-row-detail [rowHeight]="100" #mydetailRow>
+      <ng-template
+        let-row="row"
+        let-expanded="expanded"
+        ngx-datatable-row-detail-template
+      >
+        <div>
+          TEST TEST
+        </div>
+      </ng-template>
+    </ngx-datatable-row-detail>
+
+    <ngx-datatable-column [flexGrow]="0.5" [width]="50">
+      <ng-template
+        let-value="value"
+        let-row="row"
+        let-rowIndex="rowIndex"
+        ngx-datatable-cell-template
+      >
+        <!-- Pencil icon -->
+        <i
+          class="fas fa-pencil-alt"
+          title="Modify"
+          *ngIf="!this.isEditable[rowIndex]"
+          (click)="this.isEditable[rowIndex] = !this.isEditable[rowIndex]"
+        ></i>
+
+        <!-- Save/Delete icons -->
+        <i
+          class="far fa-save"
+          *ngIf="this.isEditable[rowIndex]"
+          title="Save"
+          (click)="save(row, rowIndex)"
+        ></i>
+        <br />
+        <br />
+        <i
+          class="fas fa-trash"
+          *ngIf="this.isEditable[rowIndex]"
+          title="Delete"
+          (click)="delete(row, rowIndex)"
+        ></i>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!-- For id -->
+    <ngx-datatable-column [flexGrow]="1.5" [width]="50" name="Id" prop="id">
+      <ng-template
+        ngx-datatable-cell-template
+        let-rowIndex="rowIndex"
+        let-value="value"
+        let-row="row"
+      >
+        <input
+          id="fieldinputid"
+          value="id"
+          [(ngModel)]="row.id"
+          [disabled]="!isEditable[rowIndex]"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!-- For userId -->
+    <ngx-datatable-column
+      [flexGrow]="1.5"
+      [width]="150"
+      name="UserId"
+      prop="userId"
+    >
+      <ng-template
+        ngx-datatable-cell-template
+        let-rowIndex="rowIndex"
+        let-value="value"
+        let-row="row"
+      >
+        <input
+          class="fieldinput"
+          value="userId"
+          [(ngModel)]="row.userId"
+          [disabled]="!isEditable[rowIndex]"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+    <!-- For name -->
+    <ngx-datatable-column
+      [flexGrow]="1.5"
+      [width]="150"
+      name="Name"
+      prop="name"
+    >
+      <ng-template
+        ngx-datatable-cell-template
+        let-rowIndex="rowIndex"
+        let-value="value"
+        let-row="row"
+      >
+        <input
+          class="fieldinput"
+          value="name"
+          [(ngModel)]="row.name"
+          [disabled]="!isEditable[rowIndex]"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!-- For email -->
+    <ngx-datatable-column
+      [flexGrow]="1.5"
+      [width]="150"
+      name="Email"
+      prop="email"
+    >
+      <ng-template
+        ngx-datatable-cell-template
+        let-rowIndex="rowIndex"
+        let-value="value"
+        let-row="row"
+      >
+        <input
+          class="fieldinput"
+          value="email"
+          [(ngModel)]="row.email"
+          [disabled]="!isEditable[rowIndex]"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column
+      [flexGrow]="1.5"
+      [width]="100"
+      name="Role"
+      prop="roles"
+      *ngIf="!isEditable[rowIndex]"
+    >
+      <ng-template
+        ngx-datatable-cell-template
+        let-rowIndex="rowIndex"
+        let-value="value"
+        let-row="row"
+      >
+        <select
+          *ngIf="isEditable[rowIndex]"
+          multiple
+          [disabled]="!isEditable[rowIndex]"
+          [(ngModel)]="selectedRoleIds[rowIndex]"
+          name="roles"
+        >
+          <option *ngFor="let elem of note1" [value]="elem.id">
+            {{ elem.name }}
+          </option>
+        </select>
+        <div *ngIf="!isEditable[rowIndex]">
+          <h5 *ngFor="let elem of selectedRole[rowIndex]">{{ elem }}</h5>
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

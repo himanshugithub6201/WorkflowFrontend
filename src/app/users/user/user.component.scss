@@ -1,0 +1,42 @@
+@import "~@swimlane/ngx-datatable/themes/material.css";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+@import "~@swimlane/ngx-datatable/index.css";
+
+.main-area {
+  background: #f4f4f4;
+  color: black;
+}
+
+#place {
+  width: 80%;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.fieldinput {
+  background: #f4f4f4;
+  border: none;
+  border-bottom: 1px dotted black;
+}
+
+#fieldinputid {
+  background: #f4f4f4;
+  border: none;
+}
+
+.btn-create {
+  text-decoration: none;
+  color: black;
+  background: green;
+  border: none;
+  border: 1px solid green;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+#crearwUserButton {
+  margin: auto;
+  margin-bottom: 2rem;
+}
